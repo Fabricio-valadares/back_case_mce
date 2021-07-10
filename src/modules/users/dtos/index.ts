@@ -44,6 +44,13 @@ interface IReturnUpadateUser {
   email: string;
 }
 
+interface IReturnOneUser {
+  id: string;
+  name: string;
+  telefone: string;
+  email: string;
+}
+
 export {
   IUpadateUser,
   IReturnUpadateUser,
@@ -51,4 +58,5 @@ export {
   IReturnUser,
   IDataUserService,
   IUpdateAvatar,
+  IReturnOneUser,
 };

@@ -1,5 +1,5 @@
 import { Request, Response } from "express";
-import { OneTrainerServices } from "../services/oneTrainerServices";
+import { OneUserServices } from "../services/oneUserServices";
 
 class OneTrainerController {
   public async execute(
@@ -8,11 +8,11 @@ class OneTrainerController {
   ): Promise<Response> {
     const { id } = request.params;
 
-    const trainerService = new OneTrainerServices();
+    const userService = new OneUserServices();
 
-    const trainer = await trainerService.oneTrainer(id);
+    const user = await userService.oneUser(id);
 
-    return response.status(200).json(trainer);
+    return response.status(200).json(user);
   }
 }
 

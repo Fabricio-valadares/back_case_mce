@@ -3,6 +3,7 @@ import { CreateUserController } from "../../../modules/users/controller/createUs
 import { SessionLoginUserController } from "../../../modules/accounts/controller/sessionLoginUserController";
 import { UpdateAvatarUserController } from "../../../modules/users/controller/updateAvatarUserController";
 import { UpdateUserController } from "../../../modules/users/controller/updateUserController";
+import { OneTrainerController } from "../../../modules/users/controller/oneUserController";
 import { tokenVerify } from "../middleware/verifyToken";
 import configUpload from "../../config/uploadAvatar";
 import multer from "multer";
@@ -12,6 +13,7 @@ const createUserController = new CreateUserController();
 const sessionLoginUserController = new SessionLoginUserController();
 const updateAvatarUserController = new UpdateAvatarUserController();
 const updateUserController = new UpdateUserController();
+const oneTrainerController = new OneTrainerController();
 
 const upload = multer(configUpload);
 
@@ -19,6 +21,7 @@ user.post("/user/login", sessionLoginUserController.execute);
 user.post("/user/register", createUserController.execute);
 
 user.put("/user/update/:id", tokenVerify, updateUserController.execute);
+user.get("/user/:id", tokenVerify, oneTrainerController.execute);
 user.patch(
   "/user/avatar",
   tokenVerify,

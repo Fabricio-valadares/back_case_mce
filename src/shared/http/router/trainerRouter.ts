@@ -3,7 +3,7 @@ import { CreateTrainerController } from "../../../modules/trainer/controller/cre
 import { SessionLoginTrainerController } from "../../../modules/accounts/controller/sessionLoginTrainerController";
 import { UpdateAvatarTrainerController } from "../../../modules/trainer/controller/updateAvatarTrainerController";
 import { UpdateTrainerController } from "../../../modules/trainer/controller/updateTrainerController";
-import { OnerTrainerController } from "../../../modules/trainer/controller/oneTrainerController";
+import { OneTrainerController } from "../../../modules/trainer/controller/oneTrainerController";
 import { tokenVerify } from "../middleware/verifyToken";
 import configUpload from "../../config/uploadAvatar";
 import multer from "multer";
@@ -13,7 +13,7 @@ const createTrainerController = new CreateTrainerController();
 const sessionLoginTrainerController = new SessionLoginTrainerController();
 const updateAvatarTrainerController = new UpdateAvatarTrainerController();
 const updateTrainerController = new UpdateTrainerController();
-const onerTrainerController = new OnerTrainerController();
+const oneTrainerController = new OneTrainerController();
 
 const upload = multer(configUpload);
 
@@ -25,7 +25,7 @@ trainer.put(
   tokenVerify,
   updateTrainerController.execute
 );
-trainer.get("/trainer/:id", tokenVerify, onerTrainerController.execute);
+trainer.get("/trainer/:id", tokenVerify, oneTrainerController.execute);
 trainer.patch(
   "/trainer/avatar",
   tokenVerify,

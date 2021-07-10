@@ -45,6 +45,13 @@ interface IReturnUpadateTrainer {
   telefone: string;
 }
 
+interface IReturnOnerTrainer {
+  id: string;
+  name: string;
+  email: string;
+  telefone: string;
+}
+
 export {
   IReturnUpadateTrainer,
   IDataTrainer,
@@ -52,4 +59,5 @@ export {
   IDataTrainerService,
   IUpdateAvatar,
   IUpadateTrainer,
+  IReturnOnerTrainer,
 };
