@@ -7,4 +7,9 @@ interface IReturnDataTokenLogin {
   token: string;
 }
 
-export { IDataLogin, IReturnDataTokenLogin };
+interface IDataResetPassword {
+  token: string;
+  password: string;
+}
+
+export { IDataLogin, IReturnDataTokenLogin, IDataResetPassword };
