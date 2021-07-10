@@ -4,6 +4,8 @@ import { SessionLoginTrainerController } from "../../../modules/accounts/control
 import { UpdateAvatarTrainerController } from "../../../modules/trainer/controller/updateAvatarTrainerController";
 import { UpdateTrainerController } from "../../../modules/trainer/controller/updateTrainerController";
 import { OneTrainerController } from "../../../modules/trainer/controller/oneTrainerController";
+import { ForgotPasswordTrainerController } from "../../../modules/accounts/controller/forgotPasswordTrainerController";
+import { ResetPasswordTrainerController } from "../../../modules/accounts/controller/resetPasswordTrainerController";
 import { tokenVerify } from "../middleware/verifyToken";
 import configUpload from "../../config/uploadAvatar";
 import multer from "multer";
@@ -15,6 +17,9 @@ const updateAvatarTrainerController = new UpdateAvatarTrainerController();
 const updateTrainerController = new UpdateTrainerController();
 const oneTrainerController = new OneTrainerController();
 
+const resetPasswordTrainerController = new ResetPasswordTrainerController();
+const forgotPasswordTrainerController = new ForgotPasswordTrainerController();
+
 const upload = multer(configUpload);
 
 trainer.post("/trainer/login", sessionLoginTrainerController.execute);
@@ -25,6 +30,8 @@ trainer.put(
   tokenVerify,
   updateTrainerController.execute
 );
+trainer.post("/trainer/forgot", forgotPasswordTrainerController.execute);
+trainer.post("/trainer/reset", resetPasswordTrainerController.execute);
 trainer.get("/trainer/:id", tokenVerify, oneTrainerController.execute);
 trainer.patch(
   "/trainer/avatar",

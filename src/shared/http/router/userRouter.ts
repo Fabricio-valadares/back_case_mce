@@ -16,8 +16,8 @@ const sessionLoginUserController = new SessionLoginUserController();
 const updateAvatarUserController = new UpdateAvatarUserController();
 const updateUserController = new UpdateUserController();
 const oneTrainerController = new OneTrainerController();
-const resetPasswordUserController = new ResetPasswordUserController();
 
+const resetPasswordUserController = new ResetPasswordUserController();
 const forgotPasswordUserController = new ForgotPasswordUserController();
 
 const upload = multer(configUpload);
