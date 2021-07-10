@@ -21,6 +21,9 @@ class TrainerEntitie {
   @Column()
   avatar: string;
 
+  @Column()
+  telefone: string;
+
   @CreateDateColumn()
   created_at: Date;
 

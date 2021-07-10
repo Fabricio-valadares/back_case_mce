@@ -6,13 +6,14 @@ class CreateTrainerController {
     request: Request,
     response: Response
   ): Promise<Response> {
-    const { name, email, password } = request.body;
+    const { name, email, telefone, password } = request.body;
 
     const userService = new CreateTrainerServices();
 
     const newUser = await userService.createService({
       name,
       email,
+      telefone,
       password,
     });
 

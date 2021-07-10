@@ -30,6 +30,10 @@ export class CreateColumnTrainer1625714555668 implements MigrationInterface {
             isNullable: true,
           },
           {
+            name: "telefone",
+            type: "varchar",
+          },
+          {
             name: "isTrainer",
             type: "boolean",
             default: true,

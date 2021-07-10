@@ -8,6 +8,7 @@ class CreateTrainerServices {
   public async createService({
     name,
     email,
+    telefone,
     password,
   }: IDataTrainerService): Promise<IReturnTrainer> {
     const repoTrainer = getCustomRepository(TrainerRepo);
@@ -23,12 +24,14 @@ class CreateTrainerServices {
     const newTrainer = await repoTrainer.createTrainer({
       name,
       email,
+      telefone,
       password_hash: hashPassword,
     });
 
     return {
       id: newTrainer.id,
       name: newTrainer.name,
+      telefone: newTrainer.telefone,
       email: newTrainer.email,
     };
   }

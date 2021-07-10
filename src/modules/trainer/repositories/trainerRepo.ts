@@ -7,12 +7,14 @@ class TrainerRepo extends Repository<TrainerEntitie> {
   public async createTrainer({
     name,
     email,
+    telefone,
     password_hash,
     isTrainer = true,
   }: IDataTrainer): Promise<TrainerEntitie> {
     const newTrainer = this.create({
       name,
       email,
+      telefone,
       password_hash,
       isTrainer,
     });

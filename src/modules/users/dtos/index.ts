@@ -29,4 +29,26 @@ interface IUpdateAvatar {
   avatarFileName: string;
 }
 
-export { IDataUser, IReturnUser, IDataUserService, IUpdateAvatar };
+interface IUpadateUser {
+  id: string;
+  name: string;
+  email: string;
+  telefone: string;
+  password: string;
+}
+
+interface IReturnUpadateUser {
+  id: string;
+  name: string;
+  telefone: string;
+  email: string;
+}
+
+export {
+  IUpadateUser,
+  IReturnUpadateUser,
+  IDataUser,
+  IReturnUser,
+  IDataUserService,
+  IUpdateAvatar,
+};
