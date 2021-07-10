@@ -1,7 +1,7 @@
 import nodemailer from "nodemailer";
 import fs from "fs";
 import { IDataEmail } from "./dtos";
-
+import handlebars from "handlebars";
 class ConfigSendEmail {
   static async sendEmail({ to, variable, path }: IDataEmail): Promise<void> {
     const account = await nodemailer.createTestAccount();
@@ -16,11 +16,17 @@ class ConfigSendEmail {
       },
     });
 
+    const pathUT8 = fs.readFileSync(path).toString("utf-8");
+
+    const template = handlebars.compile(pathUT8);
+
+    const templateHTML = template(variable);
+
     const message = await configTransport.sendMail({
       from: "mindcontato@mind.com.br",
       to: to,
       subject: "Reset password - Mind !",
-      text: `Hello to ${variable.name} - acesse link ${variable.link}`,
+      html: templateHTML,
     });
 
     console.log("Message sent: %s", message.messageId);
